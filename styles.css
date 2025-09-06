@@ -1,0 +1,300 @@
+/* База */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background-color: #2b5452;
+  color: #ffffff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding-bottom: 100px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Первый экран: карточка строго по центру */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+/* Карточка профиля */
+.profile-card {
+  background: linear-gradient(145deg,
+    rgba(0,255,255,0.18),
+    rgba(255,255,255,0.08) 30%,
+    rgba(0,0,0,0.25) 100%);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 24px 22px;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+/* ✅ Добавлено: масштаб карточки на ховере */
+.profile-card:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+  background: linear-gradient(145deg,
+    rgba(0,255,255,0.28),
+    rgba(255,255,255,0.12) 30%,
+    rgba(0,0,0,0.3) 100%);
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  background-color: #999;
+  border-radius: 50%;
+  border: 3px solid black;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.profile-pic:hover { transform: scale(1.06); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+
+.profile-card h2 { margin: 10px 0; color: #fff; }
+.profile-card p  { margin: 0 0 16px 0; color: #e7f3f2; font-size: 14px; }
+
+/* Кнопка «Связаться» */
+.btn-primary {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: #fff;
+  padding: 10px 20px;
+  border: none; border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.05s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover  { background-color: rgba(0,255,255,0.5); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary:focus-visible {
+  outline: 2px solid #fff;
+  box-shadow: 0 0 0 4px rgba(0,255,255,0.35);
+}
+
+/* Соц. ссылки */
+.social-links {
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+.social-links img {
+  width: 28px; height: 28px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.social-links img:hover { transform: scale(1.15); }
+
+/* Переключатель языка (слева сверху) */
+.lang-switch {
+  position: fixed;
+  top: 16px; left: 16px;
+  display: flex; gap: 8px;
+  z-index: 1000;
+}
+.lang-toggle {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 2px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+}
+.lang-toggle:hover { filter: brightness(1.1); }
+.lang-toggle[aria-pressed="true"] { background-color: rgba(255,255,255,0.2); }
+
+/* Кнопка темы */
+.theme-toggle {
+  position: fixed;
+  top: 16px; right: 16px;
+  width: 40px; height: 40px;
+  padding: 0;
+  border: 2px solid rgba(255,255,255,0.9);
+  border-radius: 10px;
+  background-color: transparent;
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, filter 0.2s ease;
+  z-index: 1000;
+}
+.theme-toggle:hover { filter: brightness(1.08); }
+.theme-icon { width: 24px; height: 24px; display: block; pointer-events: none; }
+
+/* Tooltip (тема) */
+.tooltip { position: relative; }
+.theme-toggle.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 50%; right: calc(100% + 8px);
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 6px 8px; border-radius: 6px;
+  font-size: 12px; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+  z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle.tooltip::before {
+  content: "";
+  position: absolute;
+  top: 50%; right: 100%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: rgba(0,0,0,0.85);
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.theme-toggle.tooltip:hover::after,
+.theme-toggle.tooltip:hover::before { opacity: 1; }
+
+/* Кнопка «Обо мне» снизу по центру */
+.btn-about {
+  position: fixed;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none; border-radius: 8px;
+  cursor: pointer;
+  background-color: rgba(0, 255, 255, 0.3);
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+  z-index: 1000;
+}
+.btn-about:hover { background-color: rgba(0,255,255,0.5); }
+.btn-about:active { transform: translateX(-50%) scale(0.96); }
+
+/* ✅ Исправлено: читаем правильный текст из title, а не ключа */
+.btn-about.tooltip::after {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 6px 8px; border-radius: 6px;
+  font-size: 12px; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+  z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.btn-about.tooltip:hover::after { opacity: 1; }
+
+/* Секция «Обо мне» — стеклянная карточка с акцентной боковой полосой */
+.about-section {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 28px 24px 26px 28px;
+  border-radius: 18px;
+
+  /* стекло */
+  background: linear-gradient(135deg,
+    rgba(0,255,255,0.15),
+    rgba(255,255,255,0.10) 40%,
+    rgba(0,0,0,0.35) 100%);
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+
+  text-align: left;
+  overflow: hidden; /* для декоративных элементов */
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+  background: linear-gradient(135deg,
+    rgba(0,255,255,0.25),
+    rgba(255,255,255,0.14) 40%,
+    rgba(0,0,0,0.45) 100%);
+}
+
+/* Акцентная вертикальная полоса слева */
+.about-section::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg,
+    rgba(0,255,255,0.65), rgba(0,255,255,0.18));
+  box-shadow: 0 0 24px rgba(0,255,255,0.28);
+}
+
+/* лёгкая подсветка-ореол */
+.about-section::after {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 40%;
+  background: radial-gradient(600px 120px at 40% 0%,
+    rgba(255,255,255,0.10), transparent 70%);
+  pointer-events: none;
+}
+
+/* Заголовок */
+.about-section h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  letter-spacing: .3px;
+  text-transform: none;
+}
+
+/* Текст с сохранением переводов строк из i18n ( \n ) */
+.about-section p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #f2f7f7;
+  white-space: pre-line; /* чтобы скрипт i18n рендерил переносы */
+}
+
+/* Аккуратная типографика: первая строка и буква */
+.about-section p::first-line {
+  letter-spacing: .2px;
+  font-weight: 600;
+}
+.about-section p::first-letter {
+  float: left;
+  font-size: 2.2em;
+  line-height: 1;
+  padding-right: 8px;
+  margin-top: 2px;
+  color: #ffffff;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Декоративные маркеры-«таймлайн» по левому краю текста (не меняя разметку) */
+@supports (background: radial-gradient(circle, #fff, #000)) {
+  .about-section p {
+    background:
+      radial-gradient(6px 6px at 10px 1.9em, rgba(0,255,255,0.8), transparent 60%) no-repeat,
+      radial-gradient(6px 6px at 10px 6.4em, rgba(0,255,255,0.6), transparent 60%) no-repeat,
+      radial-gradient(6px 6px at 10px 10.9em, rgba(0,255,255,0.45), transparent 60%) no-repeat,
+      radial-gradient(6px 6px at 10px 15.4em, rgba(0,255,255,0.35), transparent 60%) no-repeat;
+    padding-left: 18px; /* чтобы точки не наезжали на текст */
+  }
+}
+
+/* Адаптив: компактнее на узких экранах */
+@media (max-width: 520px) {
+  .about-section {
+    padding: 22px 18px 20px 22px;
+    border-radius: 14px;
+  }
+  .about-section h2 { font-size: 20px; margin-bottom: 10px; }
+  .about-section p  { font-size: 15px; line-height: 1.62; }
+}
+
+/* Уважение reduce-motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

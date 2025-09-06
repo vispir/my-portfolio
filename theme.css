@@ -1,0 +1,68 @@
+/* === Кнопка переключения темы с PNG-иконками === */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 2px solid rgba(92, 156, 133, 0.9);
+  border-radius: 8px;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+}
+
+/* На тёмной теме меняем рамку */
+body.dark .theme-toggle {
+  border-color: rgba(148, 148, 148, 0.8);
+}
+
+.theme-toggle:hover { filter: brightness(1.1); }
+.theme-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+body.dark .theme-toggle:focus-visible { outline-color: #000; }
+
+.theme-icon {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* === Переопределения для ТЁМНОЙ темы === */
+body.dark {
+  background-color: #1b2027;
+  color: #e8e8e8;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Карточка темнее */
+body.dark .profile-card {
+  background-color: rgba(255,255,255,0.06);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+  transition: background-color 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Тексты на карточке */
+body.dark .profile-card h2,
+body.dark .profile-card p { color: #e8e8e8; }
+
+/* Рамка аватара */
+body.dark .profile-pic { border-color: #d0d0d0; }
+
+/* Кнопки на тёмной теме */
+body.dark .btn-primary,
+body.dark .btn-about {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e8e8e8;
+}
+body.dark .btn-primary:hover,
+body.dark .btn-about:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}

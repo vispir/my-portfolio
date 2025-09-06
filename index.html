@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Карточка профиля</title>
+
+  <!-- Шрифт (по желанию) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+  <!-- Переключатель языка (слева сверху) -->
+  <div class="lang-switch" role="group" aria-label="Выбор языка">
+    <button class="lang-toggle" data-lang="ru" aria-pressed="true">RU</button>
+    <button class="lang-toggle" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+
+  <!-- Переключатель темы (справа сверху) с GIF и tooltip -->
+  <button class="theme-toggle tooltip" aria-label="Переключить тему" aria-pressed="false">
+    <img class="theme-icon" src="icons/sun.gif" alt="Светлая тема">
+  </button>
+
+  <!-- Первый экран: карточка строго по центру -->
+  <main class="hero">
+    <section class="profile-card">
+      <img src="me.jpg" alt="Фото Виктора" class="profile-pic" data-i18n-alt="photoAlt">
+      <h2 data-i18n="name">Виктор</h2>
+      <p data-i18n="role">Начинающий веб-разработчик</p>
+
+      <button class="btn-primary" data-i18n="contact">Связаться</button>
+
+      <div class="social-links">
+        <a href="https://t.me/ve0rns" target="_blank" rel="noopener" class="tooltip" data-i18n-title="telegramTitle" title="Мой Telegram">
+          <img src="telegram.png" alt="Telegram">
+        </a>
+        <a href="https://github.com/vispir" target="_blank" rel="noopener" class="tooltip" data-i18n-title="githubTitle" title="Мой GitHub">
+          <img src="github.png" alt="GitHub">
+        </a>
+        <a href="https://vk.com/veorns" target="_blank" rel="noopener" class="tooltip" data-i18n-title="vkTitle" title="Мой VK">
+          <img src="vk.png" alt="VK">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Новый блок «Обо мне» — ниже первого экрана -->
+  <section id="about" class="about-section">
+    <h2 data-i18n="aboutHeading">Обо мне</h2>
+    <p data-i18n="bio">
+      Привет! Меня зовут Виктор. Я начинающий веб-разработчик, изучаю HTML, CSS и JavaScript.
+      Люблю учиться новому и делать аккуратные интерфейсы. Моя цель — стать сильным специалистом и создавать полезные продукты.
+    </p>
+  </section>
+
+  <!-- Кнопка «Обо мне» снизу по центру -->
+  <button class="btn-about tooltip" data-i18n="aboutBtn" data-i18n-title="aboutTitle" title="Узнать обо мне">
+    Обо мне
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
