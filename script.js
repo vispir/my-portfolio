@@ -76,11 +76,11 @@ const i18n = {
     aboutHeading: "Обо мне",
     /* ✅ Заменено на твой текст */
     bio:
-      "Спиридонов Виктор Александрович, д. р. 20.08.2003г, родился в г. Астрахань,  Астраханская область, Лиманский район, р.п Лиман.\n\n" +
+      "Спиридонов Виктор Александрович, д. р. 20.08.2003г, родился  в Астраханской области, Лиманский район, р.п Лиман.\n\n" +
       "Виктор закончил “Лиманская СОШ №1” в 2019г.\n" +
-      "В сентябре 2019г, Виктор поступил в АВКТ на специалитет “Информационная безопасность автоматизированых систем”\n" +
+      "В сентябре 2019г, Виктор поступил в АКВТ на специалитет “Информационная безопасность автоматизированых систем”\n" +
       "В 2023г. успешно окончил обучение, получив диплом специалиста\n\n" +
-      "В 2023г, в октябре, Виктор устроился работать системным администраторо в ГБУЗ АО “Лиманская РБ”\n" +
+      "В 2023г, в октябре, Виктор устроился работать системным администратором в ГБУЗ АО “Лиманская РБ”\n" +
       "В настоящий момент, Виктор работает специалистом по информационной безопасности в ГБУЗ АО “Наримановская РБ”",
   },
   en: {
@@ -100,9 +100,9 @@ const i18n = {
     aboutTitle: "Learn more about me",
     aboutHeading: "About me",
     bio:
-      "Spiridonov Viktor Alexandrovich, born on August 20, 2003, in Astrakhan city, Astrakhan region, Liman district, Liman settlement.\n\n" +
+      "Spiridonov Viktor Alexandrovich, born on August 20, 2003, in Astrakhan region, Liman district, Liman settlement.\n\n" +
       "In 2019, Viktor graduated from 'Liman Secondary School No.1'.\n" +
-      "In September 2019, he entered AVKT to study the specialty 'Information Security of Automated Systems'.\n" +
+      "In September 2019, he entered AKVT to study the specialty 'Information Security of Automated Systems'.\n" +
       "In 2023, he successfully completed his studies and received a Specialist diploma.\n\n" +
       "In October 2023, Viktor started working as a system administrator at GBUZ AO 'Liman Regional Hospital'.\n" +
       "At present, Viktor works as an Information Security Specialist at GBUZ AO 'Narimanov Regional Hospital'."  }
